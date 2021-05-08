@@ -17,12 +17,12 @@ const house1: IHouse = {
   doors: [
     {
       uid: "house1-door1",
-      name: "Door 1",
+      name: "Hourse 1 Door 1",
       material: "iron",
     },
     {
       uid: "house1-door2",
-      name: "Door 2",
+      name: "Hourse 1 Door 2",
       material: "wood",
     },
   ],

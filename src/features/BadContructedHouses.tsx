@@ -4,12 +4,15 @@ import { useHouses } from "hooks/use-houses";
 
 function BadContructedHouses() {
   const initalHouses = initialAppState.pageProblem;
-  const { houses, updateWindowColor: updateWindowColorRaw } = useHouses(
-    initalHouses
-  );
+  const {
+    houses,
+    updateWindowColor: updateWindowColorCallback,
+    updateDoorMaterial: updateDoorMaterialCallback,
+  } = useHouses(initalHouses);
 
   // undo the memo for tutorial purpose only :D
-  const updateWindowColor = updateWindowColorRaw.bind(null);
+  const updateWindowColor = updateWindowColorCallback.bind(null);
+  const updateDoorMaterial = updateDoorMaterialCallback.bind(null);
 
   console.log("[render] render BadContructedHouses ");
   return (
@@ -22,6 +25,7 @@ function BadContructedHouses() {
             key={house.uid}
             house={house}
             updateWindowColor={updateWindowColor}
+            updateDoorMaterial={updateDoorMaterial}
           />
         );
       })}

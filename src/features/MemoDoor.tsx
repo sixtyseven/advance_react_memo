@@ -1,24 +1,29 @@
 import { IDoor, IMaterial } from "models";
-import { memo } from "react";
+import { FormEvent, memo } from "react";
 
 interface IProps {
   door: IDoor;
+  updateMaterial: (material: IMaterial) => void;
 }
 
 const materialOptions: IMaterial[] = ["wood", "iron", "gold"];
 
 function Door(props: IProps) {
-  const { door } = props;
+  const { door, updateMaterial } = props;
 
-  console.log("[render] Door ");
+  const onChange = (event: FormEvent<HTMLSelectElement>) => {
+    const value = event.currentTarget.value as IMaterial;
+    updateMaterial(value);
+  };
+
+  console.log("[render] Door ", door.name);
   return (
     <div>
-      Door (made from
-      <select defaultValue={door.material}>
+      {door.name} (made from
+      <select value={door.material} onChange={onChange}>
         {materialOptions.map((opt) => {
-          const selected = door.material === opt;
           return (
-            <option value={opt} selected={selected}>
+            <option key={opt} value={opt}>
               {opt}
             </option>
           );

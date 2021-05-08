@@ -1,4 +1,4 @@
-import { memo, useState, createRef, useCallback } from "react";
+import { memo, useState, useCallback, useRef } from "react";
 import { SketchPicker, ColorResult } from "react-color";
 import { useMouseDownOutside } from "hooks/use-click-outside";
 
@@ -13,7 +13,7 @@ interface IProps {
 function ColorBlock(props: IProps) {
   const { color, width = 30, height = 30, onChangeColor, debugName } = props;
   const [showColorPicker, setShowColorPicker] = useState<boolean>(false);
-  const ref = createRef<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(null);
 
   const onChangeComplete = (color: ColorResult) => {
     onChangeColor(color.hex);
@@ -21,7 +21,7 @@ function ColorBlock(props: IProps) {
   let sketchPickerComponent = null;
   if (showColorPicker) {
     sketchPickerComponent = (
-      <div style={{ position: "absolute", top: 35, zIndex: 1 }}>
+      <div ref={ref} style={{ position: "absolute", top: 35, zIndex: 1 }}>
         <SketchPicker color={color} onChangeComplete={onChangeComplete} />
       </div>
     );
@@ -39,7 +39,7 @@ function ColorBlock(props: IProps) {
   console.log("[render] Memo Color Block ", debugName);
 
   return (
-    <div ref={ref} style={{ position: "relative" }}>
+    <div style={{ position: "relative" }}>
       <div
         style={{ backgroundColor: color, width, height }}
         onClick={onClick}

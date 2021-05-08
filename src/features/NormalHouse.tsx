@@ -1,4 +1,4 @@
-import { IHouse } from "models";
+import { IHouse, IMaterial, IDoor } from "models";
 import ColorBlock from "core-ui/MemoColorBlock";
 import Door from "./MemoDoor";
 import { useCallback, memo } from "react";
@@ -10,9 +10,14 @@ export interface IProps {
     windowUid: string,
     newColor: string
   ) => void;
+  updateDoorMaterial: (
+    houseUid: string,
+    doorUid: string,
+    material: IMaterial
+  ) => void;
 }
 
-export interface IMemoColorProps {
+export interface IMemoColorWrapperProps {
   color: string;
   houseUid: string;
   updateWindowColor: (
@@ -24,7 +29,17 @@ export interface IMemoColorProps {
   debugName: string;
 }
 
-function ColorBlockWrapper(props: IMemoColorProps) {
+export interface IDoorWrapperProp {
+  door: IDoor;
+  houseUid: string;
+  updateDoorMaterial: (
+    houseUid: string,
+    doorUid: string,
+    material: IMaterial
+  ) => void;
+}
+
+function ColorBlockWrapper(props: IMemoColorWrapperProps) {
   const { color, updateWindowColor, windowUid, houseUid, debugName } = props;
 
   const onChangeColorCallback = useCallback(
@@ -40,10 +55,22 @@ function ColorBlockWrapper(props: IMemoColorProps) {
   );
 }
 
-const MemoColorBlock = memo(ColorBlockWrapper);
+function DoorWrapper(props: IDoorWrapperProp) {
+  const { door, houseUid, updateDoorMaterial } = props;
+  const updateMaterialCallback = useCallback(
+    (material: IMaterial) => {
+      updateDoorMaterial(houseUid, door.uid, material);
+    },
+    [houseUid, door.uid, updateDoorMaterial]
+  );
+
+  return <Door door={door} updateMaterial={updateMaterialCallback} />;
+}
+
+const MemoColorBlockWrapper = memo(ColorBlockWrapper);
 
 function NormalHouse(props: IProps) {
-  const { house, updateWindowColor } = props;
+  const { house, updateWindowColor, updateDoorMaterial } = props;
   const { uid: houseUid, name, windows, doors } = house;
   console.log("[render] render House ", name);
   return (
@@ -54,7 +81,7 @@ function NormalHouse(props: IProps) {
         {windows.map((window) => {
           return (
             <div key={window.uid} style={{ marginRight: 10 }}>
-              <MemoColorBlock
+              <MemoColorBlockWrapper
                 color={window.color}
                 houseUid={houseUid}
                 updateWindowColor={updateWindowColor}
@@ -69,7 +96,11 @@ function NormalHouse(props: IProps) {
         {doors.map((door) => {
           return (
             <div key={door.uid} style={{ marginRight: 10 }}>
-              <Door door={door} />
+              <DoorWrapper
+                door={door}
+                houseUid={houseUid}
+                updateDoorMaterial={updateDoorMaterial}
+              />
             </div>
           );
         })}

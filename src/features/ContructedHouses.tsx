@@ -5,7 +5,9 @@ import { useHouses } from "hooks/use-houses";
 function ContructedHouses() {
   const initalHouses = initialAppState.pageProblemFixed;
 
-  const { houses, updateWindowColor } = useHouses(initalHouses);
+  const { houses, updateWindowColor, updateDoorMaterial } = useHouses(
+    initalHouses
+  );
 
   console.log("[render] render ContructedHouses ");
   return (
@@ -19,6 +21,7 @@ function ContructedHouses() {
             key={house.uid}
             house={house}
             updateWindowColor={updateWindowColor}
+            updateDoorMaterial={updateDoorMaterial}
           />
         );
       })}
