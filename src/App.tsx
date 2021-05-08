@@ -1,72 +1,57 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import './App.css';
-import Definitions from 'pages/Definitions';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.scss";
+import Definitions from "pages/Definitions";
+import UseNormalComponents from "pages/PageNormalComponents";
+import UseMemoComponents from "pages/PageMemoComponents";
+import UseCallbackFunction from "pages/PageCallbackFunction";
+import Problem from "pages/Problem";
+import ProblemFixed from "pages/ProblemFixed";
+import ContaceMe from "pages/ContactMe";
+import ProblemFixing from "pages/ProblemFixing";
+import Home from "pages/Home";
+import Nav from "common/Nav";
 
 export default function App() {
   console.log("[render] App ");
   return (
     <Router>
       <div className="app">
-        <nav>
-          <ul>
-            <li>
-              <Link to="/definitions">Definitions</Link>
-            </li>
-            <li>
-              <Link to="/page1">Page1: React without memo (Using Normal Components)</Link>
-            </li>
-            <li>
-              <Link to="/page2">Page2: React memo (Using PureComponents)</Link>
-            </li>
-            <li>
-              <Link to="/page3">Page3: React Update view States</Link>
-            </li>
-            <li>
-              <Link to="/page4">Page4: React Container Component</Link>
-            </li>
-          </ul>
-        </nav>
+        <div className="left-side">
+          <Nav />
+        </div>
+        <div className="right-side">
+          <Switch>
+            <Route path="/problem">
+              <Problem />
+            </Route>
+            <Route path="/problem-fixed">
+              <ProblemFixed />
+            </Route>
+            <Route path="/problem-fixing">
+              <ProblemFixing />
+            </Route>
+            <Route path="/contact-me">
+              <ContaceMe />
+            </Route>
 
-
-        <Switch>
-          <Route path="/introduction">
-            <Definitions />
-          </Route>
-          <Route path="/page1">
-            <About />
-          </Route>
-          <Route path="/page2">
-            <Users />
-          </Route>
-          <Route path="/page3">
-            <Users />
-          </Route>
-          <Route path="/page4">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+            <Route path="/definitions">
+              <Definitions />
+            </Route>
+            <Route path="/page1">
+              <UseNormalComponents />
+            </Route>
+            <Route path="/page2">
+              <UseMemoComponents />
+            </Route>
+            <Route path="/page3">
+              <UseCallbackFunction />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
       </div>
     </Router>
   );
-}
-
-function Home() {
-  return <h2></h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }

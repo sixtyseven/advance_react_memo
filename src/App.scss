@@ -1,0 +1,29 @@
+.app {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-side {
+  margin-right: 20px;
+  .nav {
+    width: 250px;
+    .nav-block {
+      width: 100%;
+      margin-top: 12px;
+    }
+    .h3,
+    .h4 {
+      width: 100%;
+    }
+  }
+  ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+  }
+}
+
+.right-side {
+  width: 100%;
+}
