@@ -38,9 +38,7 @@ export function useHouses(initialHouses: IHouse[]) {
     });
   };
 
-  const updateWindowColorCallback = useCallback(updateWindowColor, [
-    setHousesAppState,
-  ]);
+  const updateWindowColorCallback = useCallback(updateWindowColor, []);
 
   return {
     houses: housesState,

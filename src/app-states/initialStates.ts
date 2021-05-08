@@ -1,5 +1,5 @@
 import { cloneDeep } from "lodash";
-import { IHouse, IAppState } from "models/index";
+import { IHouse, IAppState } from "models";
 
 const house1: IHouse = {
   uid: "house1",
@@ -12,6 +12,18 @@ const house1: IHouse = {
     {
       uid: "house1-window2",
       color: "#ff00ff",
+    },
+  ],
+  doors: [
+    {
+      uid: "house1-door1",
+      name: "Door 1",
+      material: "iron",
+    },
+    {
+      uid: "house1-door2",
+      name: "Door 2",
+      material: "wood",
     },
   ],
 };
@@ -29,6 +41,7 @@ const house2: IHouse = {
       color: "#2200ff",
     },
   ],
+  doors: [],
 };
 
 const house3: IHouse = {
@@ -44,6 +57,7 @@ const house3: IHouse = {
       color: "#f5a623",
     },
   ],
+  doors: [],
 };
 
 const house4: IHouse = {
@@ -63,6 +77,7 @@ const house4: IHouse = {
       color: "#50e3c2",
     },
   ],
+  doors: [],
 };
 const house5: IHouse = {
   uid: "house5",
@@ -77,6 +92,7 @@ const house5: IHouse = {
       color: "#417505",
     },
   ],
+  doors: [],
 };
 
 const houses = [house1, house2, house3, house4, house5];

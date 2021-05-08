@@ -1,5 +1,6 @@
 import { IHouse } from "models";
 import ColorBlock from "core-ui/MemoColorBlock";
+import Door from "./MemoDoor";
 import { useCallback, memo } from "react";
 
 export interface IProps {
@@ -43,7 +44,7 @@ const MemoColorBlock = memo(ColorBlockWrapper);
 
 function NormalHouse(props: IProps) {
   const { house, updateWindowColor } = props;
-  const { uid: houseUid, name, windows } = house;
+  const { uid: houseUid, name, windows, doors } = house;
   console.log("[render] render House ", name);
   return (
     <>
@@ -60,6 +61,15 @@ function NormalHouse(props: IProps) {
                 debugName={window.uid}
                 windowUid={window.uid}
               />
+            </div>
+          );
+        })}
+      </div>
+      <div>
+        {doors.map((door) => {
+          return (
+            <div key={door.uid} style={{ marginRight: 10 }}>
+              <Door door={door} />
             </div>
           );
         })}

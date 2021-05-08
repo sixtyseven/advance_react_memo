@@ -1,4 +1,5 @@
 function ProblemFixing() {
+  console.log("[render] Page Address Problem ");
   return (
     <div className="page">
       <h3>Problem Fixing</h3>
