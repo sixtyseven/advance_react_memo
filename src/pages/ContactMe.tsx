@@ -1,4 +1,5 @@
-const IndexPage = () => {
+const ContactMe = () => {
+  console.log("[render] Page Contact Me ");
   return (
     <div>
       <h3>Contact Me</h3>
@@ -49,4 +50,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default ContactMe;

@@ -74,7 +74,7 @@ function NormalHouse(props: IProps) {
   const { uid: houseUid, name, windows, doors } = house;
   console.log("[render] render House ", name);
   return (
-    <>
+    <div style={{ marginTop: 12 }}>
       <div>House Name: {name} </div>
       <div>House windows: </div>
       <div style={{ display: "flex" }}>
@@ -105,7 +105,7 @@ function NormalHouse(props: IProps) {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
 

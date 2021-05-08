@@ -21,6 +21,8 @@ const navData = {
       items: [
         { link: "/problem-fixing", label: "Address Promblems" },
         { link: "/problem-fixed", label: "Promblem Fixed" },
+        { link: "/add-new-feature-door", label: "Add a new feature" },
+        { link: "/quiz", label: "Quiz" },
       ],
     },
     {

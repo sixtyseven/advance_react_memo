@@ -17,7 +17,7 @@ function ProblemFixing() {
             <code>
               <pre>
                 {`/**
- * memo also accept a second argument for complext props comparision.
+ * memo also accept a second argument for complex props comparision.
  * Don't forget to take advantage of immutation and shallow comparison
  */`}
               </pre>

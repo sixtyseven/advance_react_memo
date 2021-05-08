@@ -13,8 +13,10 @@ function ContructedHouses() {
   return (
     <>
       <h3>ContructedHouses </h3>
-      <p>Update any window color, and inpect the console output</p>
-      <p>It is glad to see that only the components required are rendered</p>
+      <p>
+        Update any window color or door material, and inpect the console output
+      </p>
+
       {houses.map((house) => {
         return (
           <MemoHouse

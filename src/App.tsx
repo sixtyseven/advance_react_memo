@@ -10,6 +10,8 @@ import ContaceMe from "pages/ContactMe";
 import ProblemFixing from "pages/ProblemFixing";
 import Home from "pages/Home";
 import Nav from "common/Nav";
+import AddFeatureDoor from "pages/AddFeatureDoor";
+import QuizAddMoreNewFeature from "pages/QuizAddMoreNewFeature";
 
 export default function App() {
   console.log("[render] App ");
@@ -29,6 +31,12 @@ export default function App() {
             </Route>
             <Route path="/problem-fixing">
               <ProblemFixing />
+            </Route>
+            <Route path="/add-new-feature-door">
+              <AddFeatureDoor />
+            </Route>
+            <Route path="/quiz">
+              <QuizAddMoreNewFeature />
             </Route>
             <Route path="/contact-me">
               <ContaceMe />
