@@ -4,7 +4,12 @@ import { useHouses } from "hooks/use-houses";
 
 function BadContructedHouses() {
   const initalHouses = initialAppState.pageProblem;
-  const { houses, updateWindowColor } = useHouses(initalHouses);
+  const { houses, updateWindowColor: updateWindowColorRaw } = useHouses(
+    initalHouses
+  );
+
+  // undo the memo for tutorial purpose only :D
+  const updateWindowColor = updateWindowColorRaw.bind(null);
 
   console.log("[render] render BadContructedHouses ");
   return (

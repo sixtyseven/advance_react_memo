@@ -10,7 +10,7 @@ function PageNormalComponent() {
     setInputVal1(e.currentTarget.value);
   };
 
-  console.log("[render] Page ");
+  console.info("[render] Page without Memo");
   return (
     <div className="page">
       <h3> Component Without Memo</h3>

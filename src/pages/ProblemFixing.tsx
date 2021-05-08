@@ -4,7 +4,7 @@ function ProblemFixing() {
       <h3>Problem Fixing</h3>
       <ol>
         <li>
-          <p>
+          <div>
             Let's wrap those some more components to be make React PureComponent
             <br />
             <br />
@@ -13,6 +13,14 @@ function ProblemFixing() {
             <code>export default memo(ComponentWithCallbackProp);</code>
             <br />
             <br />
+            <code>
+              <pre>
+                {`/**
+ * memo also accept a second argument for complext props comparision.
+ * Don't forget to take advantage of immutation and shallow comparison
+ */`}
+              </pre>
+            </code>
             <code>
               {`
                 import { memo } from "react"; `}{" "}
@@ -24,6 +32,15 @@ function ProblemFixing() {
                 type IPropKeys = keyof IProps;
               `}
               <br />
+              <br />
+              <code>
+                <pre>
+                  {`/**
+ This is same as
+ export default memo(NormalHouse);
+ */`}
+                </pre>
+              </code>
               {`
                 export default memo(NormalHouse, (p: IProps, q: IProps) => {  `}
               <br />
@@ -43,7 +60,7 @@ function ProblemFixing() {
                 });
                 `}
             </code>
-          </p>
+          </div>
         </li>
         <li>
           <div>

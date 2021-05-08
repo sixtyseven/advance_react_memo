@@ -22,7 +22,7 @@ const house2: IHouse = {
   windows: [
     {
       uid: "house2-window1",
-      color: "#ffff00",
+      color: "#d0021b",
     },
     {
       uid: "house2-window2",
@@ -37,11 +37,11 @@ const house3: IHouse = {
   windows: [
     {
       uid: "house3-window1",
-      color: "#ff0000",
+      color: "#9013fe",
     },
     {
       uid: "house3-window2",
-      color: "#2200ff",
+      color: "#f5a623",
     },
   ],
 };
@@ -52,7 +52,7 @@ const house4: IHouse = {
   windows: [
     {
       uid: "house4-window1",
-      color: "#ff0000",
+      color: "#7ed321",
     },
     {
       uid: "house4-window2",
@@ -60,7 +60,7 @@ const house4: IHouse = {
     },
     {
       uid: "house4-window3",
-      color: "#2200ff",
+      color: "#50e3c2",
     },
   ],
 };
@@ -70,11 +70,11 @@ const house5: IHouse = {
   windows: [
     {
       uid: "house5-window1",
-      color: "#ff0000",
+      color: "#4a90e2",
     },
     {
       uid: "house5-window2",
-      color: "#2200ff",
+      color: "#417505",
     },
   ],
 };
