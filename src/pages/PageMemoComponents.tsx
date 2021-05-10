@@ -20,7 +20,7 @@ function UseMemoComponent() {
       <MemoComponent1 name="static name" />
       <br />
       <p>
-        All we did was wrap the component with <code>React.memo</code>
+        All we did was wrap the Component with <code>React.memo</code>
       </p>
       <p>Or Yes, haha, "static name" is not rendered now. Magic!</p>
       <div>

@@ -1,42 +1,39 @@
 import { Link } from "react-router-dom";
+import { routesMap } from "./routes";
 
 const navData = {
   title: `An Advanced React Memo Tutorial`,
   blocks: [
     {
       title: "Problem",
-      items: [{ link: "/problem", label: "Promblem" }],
+      items: [routesMap.problem],
     },
     {
       title: "Training Agenda",
       items: [
-        { link: "/definitions", label: "Definitions" },
-        { link: "/page1", label: "Page1: React without memo" },
-        { link: "/page2", label: "Page2: React memo / PureComponent" },
-        { link: "/page3", label: "Page3: React memo with callback function" },
+        routesMap.definitions,
+        routesMap.page1,
+        routesMap.page2,
+        routesMap.page3,
+        routesMap.page4,
       ],
     },
     {
       title: "Fix The Problem",
       items: [
-        { link: "/problem-fixing", label: "Address Promblems" },
-        { link: "/problem-fixed", label: "Promblem Fixed" },
-        { link: "/add-new-feature-door", label: "Add a new feature" },
-        { link: "/quiz", label: "Quiz" },
+        routesMap.problemFixing,
+        routesMap.problemFixed,
+        routesMap.addNewFeatureDoor,
+        routesMap.quiz,
       ],
     },
     {
       title: "Souce code",
-      items: [
-        {
-          link: "https://github.com/sixtyseven/advance_react_memo",
-          label: "GitHub",
-        },
-      ],
+      items: [routesMap.souceCode],
     },
     {
       title: "Contact me",
-      items: [{ link: "/contact-me", label: "Contact me" }],
+      items: [routesMap.contactMe],
     },
   ],
 };
@@ -51,26 +48,20 @@ export default function Nav() {
             <h4 className="h4">{block.title}</h4>
             <ul>
               {block.items.map((item) => {
+                const { path, shortTitle } = item;
                 let linkComponent;
                 //external link
-                if (
-                  item.link.startsWith("https://") ||
-                  item.link.startsWith("http://")
-                ) {
+                if (path.startsWith("https://") || path.startsWith("http://")) {
                   linkComponent = (
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {item.label}
+                    <a href={path} target="_blank" rel="noopener noreferrer">
+                      {shortTitle}
                     </a>
                   );
                 } else {
-                  linkComponent = <Link to={item.link}>{item.label}</Link>;
+                  linkComponent = <Link to={path}>{shortTitle}</Link>;
                 }
 
-                return <li key={item.link}>{linkComponent}</li>;
+                return <li key={path}>{linkComponent}</li>;
               })}
             </ul>
           </div>

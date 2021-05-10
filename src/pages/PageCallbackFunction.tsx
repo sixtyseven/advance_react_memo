@@ -23,11 +23,20 @@ function UseCallbackFucntion() {
       <MemoComponentWithCallback name="static name" callback={callback2} />
       <br />
       <p>
-        However, sometimes if we add some callback to props, react starts to
-        render not updated peer components again
+        Now, we start to add a callback to the props, but react starts to render
+        not updated peer Components again.
+      </p>
+      <code>
+        <MemoComponentWithCallback name={inputVal1} callback={callback1} />
+      </code>
+      <p>What Happened?</p>
+      <p>
+        It turns out that react Component would create a new function and assign
+        it to a different memory address.
       </p>
       <p>
-        No worries, <code>React.useCallback</code> comes to the rescue.
+        No worries, <code>React.useCallback</code> comes to the rescue. It will
+        cache the function value and use it again instead of create a new one.
       </p>
       <code>
         <pre>
@@ -44,22 +53,22 @@ function UseCallbackFucntion() {
         <code>callback2</code>
         function to below:
       </p>
-      <code>
-        {`
+      <div>
+        <code>
+          <pre>
+            {`
 
     const callback2 = useCallback(() => {
       console.log("callback2");
     }, []);
+    <MemoComponentWithCallback name="static name" callback={callback2} />
        `}
-      </code>
+          </pre>
+        </code>
+      </div>
       <p>
         Or Yes, "static name" is not rendered when we need to render the peer
-        component now.
-      </p>
-      <p>
-        Similarly, we have tools like <code>React.useMemo</code> and{" "}
-        <code>reselect</code> for more advanced memo for different scenarios to
-        make react work as expected.
+        Component now.
       </p>
     </div>
   );

@@ -6,7 +6,7 @@ function ProblemFixing() {
       <ol>
         <li>
           <div>
-            Let's wrap those some more components to be make React PureComponent
+            Let's wrap those some more Components to be make React PureComponent
             <br />
             <br />
             <code>export default memo(ColorBlock);</code>
@@ -127,7 +127,7 @@ function ProblemFixing() {
         </li>
         <li>
           <div>
-            You may need to create some wrapper component to memo array items:
+            You may need to create some wrapper Component to memo array items:
             <br />
             eg: memo `ColorBlock` for array items:
             <code>

@@ -10,11 +10,11 @@ interface IItem {
 const definitionList: IItem[] = [
   {
     label: "React.Component",
-    link: "https://reactjs.org/docs/react-api.html#reactcomponent",
+    link: "https://reactjs.org/docs/react-api.html#reactComponent",
   },
   {
     label: "React.PureComponent",
-    link: "https://reactjs.org/docs/react-api.html#reactpurecomponent",
+    link: "https://reactjs.org/docs/react-api.html#reactpureComponent",
   },
   {
     label: "React.memo",

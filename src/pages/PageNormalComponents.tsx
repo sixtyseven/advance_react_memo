@@ -21,7 +21,7 @@ function PageNormalComponent() {
       <br />
       <p>
         Or no, "static name" has never been updated, but our Robot still renders
-        the component. In this case, we definitely don't need the render.
+        the Component. In this case, we definitely don't need the render.
       </p>
     </div>
   );

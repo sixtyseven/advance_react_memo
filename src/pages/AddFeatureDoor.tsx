@@ -12,8 +12,8 @@ function AddNewFeatureDoor() {
       <p>
         After some work, now we have added 2 doors to house 1. We also has the
         capicity to add more doors by merely updating the application state. we
-        can see that whenever we update any door or window, only the component
-        and its direct ancestor components are rendered.
+        can see that whenever we update any door or window, only the Component
+        and its direct ancestor Components are rendered.
       </p>
       <p>Happy boss, happy life!</p>
 

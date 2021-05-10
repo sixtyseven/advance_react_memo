@@ -1,17 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
-import Definitions from "pages/Definitions";
-import UseNormalComponents from "pages/PageNormalComponents";
-import UseMemoComponents from "pages/PageMemoComponents";
-import UseCallbackFunction from "pages/PageCallbackFunction";
-import Problem from "pages/Problem";
-import ProblemFixed from "pages/ProblemFixed";
-import ContaceMe from "pages/ContactMe";
-import ProblemFixing from "pages/ProblemFixing";
-import Home from "pages/Home";
 import Nav from "common/Nav";
-import AddFeatureDoor from "pages/AddFeatureDoor";
-import QuizAddMoreNewFeature from "pages/QuizAddMoreNewFeature";
+import { routesMap, IRoutesMap } from "common/routes";
 
 export default function App() {
   console.log("[render] App ");
@@ -23,40 +13,20 @@ export default function App() {
         </div>
         <div className="right-side">
           <Switch>
-            <Route path="/problem">
-              <Problem />
-            </Route>
-            <Route path="/problem-fixed">
-              <ProblemFixed />
-            </Route>
-            <Route path="/problem-fixing">
-              <ProblemFixing />
-            </Route>
-            <Route path="/add-new-feature-door">
-              <AddFeatureDoor />
-            </Route>
-            <Route path="/quiz">
-              <QuizAddMoreNewFeature />
-            </Route>
-            <Route path="/contact-me">
-              <ContaceMe />
-            </Route>
+            {Object.keys(routesMap).map((routeKey) => {
+              const { path, Component: PageComponent } = routesMap[
+                routeKey as keyof IRoutesMap
+              ];
 
-            <Route path="/definitions">
-              <Definitions />
-            </Route>
-            <Route path="/page1">
-              <UseNormalComponents />
-            </Route>
-            <Route path="/page2">
-              <UseMemoComponents />
-            </Route>
-            <Route path="/page3">
-              <UseCallbackFunction />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
+              if (!PageComponent) {
+                return null;
+              }
+              return (
+                <Route key={path} path={path}>
+                  <PageComponent />
+                </Route>
+              );
+            })}
           </Switch>
         </div>
       </div>

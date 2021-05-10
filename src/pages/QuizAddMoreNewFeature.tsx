@@ -1,5 +1,3 @@
-import ContructedHouses from "features/ContructedHouses";
-
 function QuizAddNewFeature() {
   console.log("[render] Page Quiz");
   return (
